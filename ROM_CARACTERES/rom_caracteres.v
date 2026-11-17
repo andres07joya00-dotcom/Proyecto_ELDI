@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 
 module rom_caracteres (
-    input  wire [4:0] caracter,
+    input  wire [5:0] caracter,
     input  wire [2:0] fila,
     output reg  [7:0] pixeles
 );
@@ -377,10 +377,327 @@ module rom_caracteres (
                 endcase
             end
 
-            // ESPACIO
+                        // ESPACIO
             5'd26: pixeles = 8'b00000000;
 
-            // Cualquier código no definido: apagado
+                        
+            5'd27: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00000000;
+                    3'd1: pixeles = 8'b00000000;
+                    3'd2: pixeles = 8'b00000000;
+                    3'd3: pixeles = 8'b01111110;
+                    3'd4: pixeles = 8'b01111110;
+                    3'd5: pixeles = 8'b00000000;
+                    3'd6: pixeles = 8'b00000000;
+                    3'd7: pixeles = 8'b00000000;
+                endcase
+            end
+            
+                        // . (28)
+            6'd28: begin
+                case (fila)
+                    3'd6: pixeles = 8'b00011000;
+                    3'd7: pixeles = 8'b00011000;
+                    default: pixeles = 8'b00000000;
+                endcase
+            end
+
+            // ! (29)
+            6'd29: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00011000;
+                    3'd1: pixeles = 8'b00011000;
+                    3'd2: pixeles = 8'b00011000;
+                    3'd3: pixeles = 8'b00011000;
+                    3'd4: pixeles = 8'b00011000;
+                    3'd5: pixeles = 8'b00011000;
+                    3'd6: pixeles = 8'b00000000;
+                    3'd7: pixeles = 8'b00011000;
+                endcase
+            end
+
+            // ? (30)
+            6'd30: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01100110;
+                    3'd2: pixeles = 8'b00000110;
+                    3'd3: pixeles = 8'b00001100;
+                    3'd4: pixeles = 8'b00011000;
+                    3'd5: pixeles = 8'b00000000;
+                    3'd6: pixeles = 8'b00011000;
+                    3'd7: pixeles = 8'b00011000;
+                endcase
+            end
+
+            // : (31)
+            6'd31: begin
+                case (fila)
+                    3'd2: pixeles = 8'b00011000;
+                    3'd3: pixeles = 8'b00011000;
+                    3'd5: pixeles = 8'b00011000;
+                    3'd6: pixeles = 8'b00011000;
+                    default: pixeles = 8'b00000000;
+                endcase
+            end
+
+            // ---------------- DIGITOS ----------------
+
+            // 0 (32)
+            6'd32: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01100110;
+                    3'd2: pixeles = 8'b11000111;
+                    3'd3: pixeles = 8'b11001011;
+                    3'd4: pixeles = 8'b11010011;
+                    3'd5: pixeles = 8'b11100011;
+                    3'd6: pixeles = 8'b01100110;
+                    3'd7: pixeles = 8'b00111100;
+                endcase
+            end
+
+            // 1 (33)
+            6'd33: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00011000;
+                    3'd1: pixeles = 8'b00111000;
+                    3'd2: pixeles = 8'b01111000;
+                    3'd3: pixeles = 8'b00011000;
+                    3'd4: pixeles = 8'b00011000;
+                    3'd5: pixeles = 8'b00011000;
+                    3'd6: pixeles = 8'b00011000;
+                    3'd7: pixeles = 8'b01111110;
+                endcase
+            end
+
+            // 2 (34)
+            6'd34: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01100110;
+                    3'd2: pixeles = 8'b00000110;
+                    3'd3: pixeles = 8'b00001100;
+                    3'd4: pixeles = 8'b00011000;
+                    3'd5: pixeles = 8'b00110000;
+                    3'd6: pixeles = 8'b01100000;
+                    3'd7: pixeles = 8'b01111110;
+                endcase
+            end
+
+            // 3 (35)
+            6'd35: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01100110;
+                    3'd2: pixeles = 8'b00000110;
+                    3'd3: pixeles = 8'b00011100;
+                    3'd4: pixeles = 8'b00000110;
+                    3'd5: pixeles = 8'b00000110;
+                    3'd6: pixeles = 8'b01100110;
+                    3'd7: pixeles = 8'b00111100;
+                endcase
+            end
+
+            // 4 (36)
+            6'd36: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00001100;
+                    3'd1: pixeles = 8'b00011100;
+                    3'd2: pixeles = 8'b00111100;
+                    3'd3: pixeles = 8'b01101100;
+                    3'd4: pixeles = 8'b11001100;
+                    3'd5: pixeles = 8'b11111111;
+                    3'd6: pixeles = 8'b00001100;
+                    3'd7: pixeles = 8'b00001100;
+                endcase
+            end
+
+            // 5 (37)
+            6'd37: begin
+                case (fila)
+                    3'd0: pixeles = 8'b01111110;
+                    3'd1: pixeles = 8'b01100000;
+                    3'd2: pixeles = 8'b01100000;
+                    3'd3: pixeles = 8'b01111100;
+                    3'd4: pixeles = 8'b00000110;
+                    3'd5: pixeles = 8'b00000110;
+                    3'd6: pixeles = 8'b01100110;
+                    3'd7: pixeles = 8'b00111100;
+                endcase
+            end
+
+            // 6 (38)
+            6'd38: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00011100;
+                    3'd1: pixeles = 8'b00110000;
+                    3'd2: pixeles = 8'b01100000;
+                    3'd3: pixeles = 8'b01111100;
+                    3'd4: pixeles = 8'b01100110;
+                    3'd5: pixeles = 8'b01100110;
+                    3'd6: pixeles = 8'b01100110;
+                    3'd7: pixeles = 8'b00111100;
+                endcase
+            end
+
+            // 7 (39)
+            6'd39: begin
+                case (fila)
+                    3'd0: pixeles = 8'b01111110;
+                    3'd1: pixeles = 8'b00000110;
+                    3'd2: pixeles = 8'b00001100;
+                    3'd3: pixeles = 8'b00011000;
+                    3'd4: pixeles = 8'b00110000;
+                    3'd5: pixeles = 8'b00110000;
+                    3'd6: pixeles = 8'b00110000;
+                    3'd7: pixeles = 8'b00110000;
+                endcase
+            end
+
+            // 8 (40)
+            6'd40: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01100110;
+                    3'd2: pixeles = 8'b01100110;
+                    3'd3: pixeles = 8'b00111100;
+                    3'd4: pixeles = 8'b01100110;
+                    3'd5: pixeles = 8'b01100110;
+                    3'd6: pixeles = 8'b01100110;
+                    3'd7: pixeles = 8'b00111100;
+                endcase
+            end
+
+            // 9 (41)
+            6'd41: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01100110;
+                    3'd2: pixeles = 8'b01100110;
+                    3'd3: pixeles = 8'b00111110;
+                    3'd4: pixeles = 8'b00000110;
+                    3'd5: pixeles = 8'b00000110;
+                    3'd6: pixeles = 8'b00001100;
+                    3'd7: pixeles = 8'b00111000;
+                endcase
+            end
+
+            // ---------------- EMOJIS ----------------
+
+            // CORAZON (42)
+            6'd42: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00000000;
+                    3'd1: pixeles = 8'b01100110;
+                    3'd2: pixeles = 8'b11111111;
+                    3'd3: pixeles = 8'b11111111;
+                    3'd4: pixeles = 8'b11111111;
+                    3'd5: pixeles = 8'b01111110;
+                    3'd6: pixeles = 8'b00111100;
+                    3'd7: pixeles = 8'b00011000;
+                endcase
+            end
+
+            // CARITA FELIZ (43)
+            6'd43: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01000010;
+                    3'd2: pixeles = 8'b10100101;
+                    3'd3: pixeles = 8'b10000001;
+                    3'd4: pixeles = 8'b10100101;
+                    3'd5: pixeles = 8'b10011001;
+                    3'd6: pixeles = 8'b01000010;
+                    3'd7: pixeles = 8'b00111100;
+                endcase
+            end
+
+            // CARITA TRISTE (44)
+            6'd44: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00111100;
+                    3'd1: pixeles = 8'b01000010;
+                    3'd2: pixeles = 8'b10100101;
+                    3'd3: pixeles = 8'b10000001;
+                    3'd4: pixeles = 8'b10011001;
+                    3'd5: pixeles = 8'b10100101;
+                    3'd6: pixeles = 8'b01000010;
+                    3'd7: pixeles = 8'b00111100;
+                endcase
+            end
+
+            // ESTRELLA (45)
+            6'd45: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00011000;
+                    3'd1: pixeles = 8'b00011000;
+                    3'd2: pixeles = 8'b11111111;
+                    3'd3: pixeles = 8'b01111110;
+                    3'd4: pixeles = 8'b00111100;
+                    3'd5: pixeles = 8'b00111100;
+                    3'd6: pixeles = 8'b01100110;
+                    3'd7: pixeles = 8'b11000011;
+                endcase
+            end
+
+            // NOTA MUSICAL (46)
+            6'd46: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00011111;
+                    3'd1: pixeles = 8'b00011001;
+                    3'd2: pixeles = 8'b00011001;
+                    3'd3: pixeles = 8'b00011000;
+                    3'd4: pixeles = 8'b00011000;
+                    3'd5: pixeles = 8'b01111000;
+                    3'd6: pixeles = 8'b11111000;
+                    3'd7: pixeles = 8'b01110000;
+                endcase
+            end
+
+            // FLECHA DERECHA (47)
+            6'd47: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00001000;
+                    3'd1: pixeles = 8'b00001100;
+                    3'd2: pixeles = 8'b00001110;
+                    3'd3: pixeles = 8'b11111111;
+                    3'd4: pixeles = 8'b11111111;
+                    3'd5: pixeles = 8'b00001110;
+                    3'd6: pixeles = 8'b00001100;
+                    3'd7: pixeles = 8'b00001000;
+                endcase
+            end
+
+            // FLECHA IZQUIERDA (48)
+            6'd48: begin
+                case (fila)
+                    3'd0: pixeles = 8'b00010000;
+                    3'd1: pixeles = 8'b00110000;
+                    3'd2: pixeles = 8'b01110000;
+                    3'd3: pixeles = 8'b11111111;
+                    3'd4: pixeles = 8'b11111111;
+                    3'd5: pixeles = 8'b01110000;
+                    3'd6: pixeles = 8'b00110000;
+                    3'd7: pixeles = 8'b00010000;
+                endcase
+            end
+
+            // SOL (49)
+            6'd49: begin
+                case (fila)
+                    3'd0: pixeles = 8'b10011001;
+                    3'd1: pixeles = 8'b01011010;
+                    3'd2: pixeles = 8'b00111100;
+                    3'd3: pixeles = 8'b11111111;
+                    3'd4: pixeles = 8'b11111111;
+                    3'd5: pixeles = 8'b00111100;
+                    3'd6: pixeles = 8'b01011010;
+                    3'd7: pixeles = 8'b10011001;
+                endcase
+            end
+            
             default: pixeles = 8'b00000000;
 
         endcase
