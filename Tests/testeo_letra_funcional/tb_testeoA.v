@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_ws2812_fastled;
+module tb_testeoA;
 
     reg clk = 0;
     wire led_data;
@@ -13,8 +13,8 @@ module tb_ws2812_fastled;
     always #5 clk = ~clk;
 
     initial begin
-        $dumpfile("ws2812_fastled.vcd");
-        $dumpvars(0, tb_ws2812_fastled);
+        $dumpfile("Letra_A.vcd");
+        $dumpvars(0, tb_testeoA);
 
         #9000000;
 
