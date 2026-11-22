@@ -1,10 +1,10 @@
 module uart_rx #(
-    parameter integer Clks_por_bit = 868      // 100 MHz / 115200
+    parameter integer Clks_por_bit = 868      
 )(
     input  wire       CLK,
     input  wire       RX,
     output reg  [7:0] Dato        = 8'd0,
-    output reg        Dato_valido = 1'b0      // pulso de 1 ciclo por cada byte
+    output reg        Dato_valido = 1'b0      
 );
 
     localparam INACTIVO = 2'd0;
@@ -12,7 +12,7 @@ module uart_rx #(
     localparam DATOS    = 2'd2;
     localparam PARADA   = 2'd3;
 
-    // Sincronizador (RX es asíncrono)
+    
     reg RX_etapa1 = 1'b1;
     reg RX_etapa2 = 1'b1;
 
@@ -34,7 +34,7 @@ module uart_rx #(
                     Estado_rx <= INICIO;
             end
 
-            // Verifica el bit de inicio a la mitad de su duración
+            
             INICIO: begin
                 if (Contador == (Clks_por_bit/2) - 1) begin
                     Contador <= 10'd0;
@@ -44,7 +44,7 @@ module uart_rx #(
                     Contador <= Contador + 1'b1;
             end
 
-            // Muestrea cada bit (LSB primero) a mitad de su duración
+            
             DATOS: begin
                 if (Contador == Clks_por_bit - 1) begin
                     Contador     <= 10'd0;

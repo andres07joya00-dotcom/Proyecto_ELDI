@@ -3,14 +3,13 @@ module uart_frase #(
     parameter [6*N_CHARS-1:0] FRASE_INICIAL = {6*N_CHARS{1'b0}}
 )(
     input  wire                 CLK,
-    input  wire                 Estado,      // no se usa, se deja por compatibilidad
+    input  wire                 Estado,      
     input  wire                 UART_RX,
     output reg  [6*N_CHARS-1:0] Frase = FRASE_INICIAL
 );
 
     localparam [5:0] Codigo_espacio = 6'd26;
 
-    // Receptor UART
     wire [7:0] Dato;
     wire       Dato_valido;
 
@@ -21,8 +20,7 @@ module uart_frase #(
         .Dato_valido (Dato_valido)
     );
 
-    // Traducción ASCII -> código de la ROM
-    // Salida: bit 6 = carácter válido, bits 5:0 = código
+   
     function [6:0] Traducir;
         input [7:0] Ascii;
         reg   [7:0] Resta;
@@ -63,14 +61,14 @@ module uart_frase #(
 
     wire [6:0] Traduccion = Traducir(Dato);
 
-    // Banderas
+    
     wire Bandera_caracter = Dato_valido & Traduccion[6];
-    wire Bandera_borrar   = Dato_valido & ((Dato == 8'h08) | (Dato == 8'h7F));  // Backspace
+    wire Bandera_borrar   = Dato_valido & ((Dato == 8'h08) | (Dato == 8'h7F)); 
 
-    // Entrada D del registro
+   
     wire [6*N_CHARS-1:0] D_Frase =
-        Bandera_caracter ? {Frase[6*N_CHARS-7:0], Traduccion[5:0]} :  // entra por la derecha
-        Bandera_borrar   ? {Codigo_espacio, Frase[6*N_CHARS-1:6]}  :  // borra el último
+        Bandera_caracter ? {Frase[6*N_CHARS-7:0], Traduccion[5:0]} :  
+        Bandera_borrar   ? {Codigo_espacio, Frase[6*N_CHARS-1:6]}  :
                            Frase;
 
     always @(posedge CLK)
