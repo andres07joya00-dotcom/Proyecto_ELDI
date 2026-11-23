@@ -1,0 +1,105 @@
+$date
+	Sun Nov 22 18:21:48 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_contadores $end
+$scope module dut $end
+$var wire 1 ! Bandera_fin_Cuadro $end
+$var wire 1 " Bandera_fin_columna $end
+$var wire 1 # Bandera_fin_pixel $end
+$var wire 1 $ CLK $end
+$var wire 1 % Estado $end
+$var wire 8 & D_Indice_pixel [7:0] $end
+$var wire 5 ' D_Indice_bit [4:0] $end
+$var wire 7 ( D_Contador_tiempo_bit [6:0] $end
+$var wire 15 ) D_Contador_reinicio [14:0] $end
+$var wire 1 * Bandera_fin_reinicio $end
+$var wire 1 + Bandera_fin_bit $end
+$var parameter 32 , Periodo_bit $end
+$var parameter 32 - Tiempo_reinicio $end
+$var reg 15 . Contador_reinicio [14:0] $end
+$var reg 7 / Contador_tiempo_bit [6:0] $end
+$var reg 5 0 Indice_bit [4:0] $end
+$var reg 8 1 Indice_pixel [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b110110101100000 -
+b1111101 ,
+$end
+#309960000
+$dumpvars
+b0 1
+b0 0
+b1111001 /
+b0 .
+0+
+0*
+b0 )
+b1111010 (
+b0 '
+b0 &
+1%
+0$
+0#
+0"
+0!
+$end
+#309965000
+b1111011 (
+b1111010 /
+1$
+#309970000
+0$
+#309975000
+b1111100 (
+b1111011 /
+1$
+#309980000
+0$
+#309985000
+b10111 '
+b1 &
+1#
+b0 (
+1+
+b1111100 /
+1$
+#309990000
+0$
+#309995000
+b1 (
+b1 &
+0#
+b1 1
+b10111 0
+0+
+b0 /
+1$
+#310000000
+0$
+#310005000
+b10 (
+b1 /
+1$
+#310010000
+0$
+#310015000
+b11 (
+b10 /
+1$
+#310020000
+0$
+#310025000
+b100 (
+b11 /
+1$
+#310030000
+0$

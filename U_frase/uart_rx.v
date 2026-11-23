@@ -44,7 +44,7 @@ module uart_rx #(
                     Contador <= Contador + 1'b1;
             end
 
-            
+           
             DATOS: begin
                 if (Contador == Clks_por_bit - 1) begin
                     Contador     <= 10'd0;
