@@ -337,17 +337,15 @@ Estas pruebas permiten estudiar por separado la generación de señales y la rep
 
 ## Implementación en FPGA
 
-Para llevar el diseño a hardware:
+La carpeta `FPGA/` contiene los módulos principales y los archivos de constraints (`.xdc`) para implementar el proyecto en la tarjeta.
 
-1. Crear un proyecto RTL en Vivado y seleccionar el dispositivo utilizado en el montaje.
-2. Incorporar las ocho fuentes del diseño descritas en la arquitectura.
-3. Seleccionar `main` como módulo superior.
-4. Definir el reloj de entrada de 100 MHz.
-5. Asignar los pines de `CLK`, `Interruptores`, `UART_RX` y `Datos_LED` según la tarjeta y las conexiones documentadas.
-6. Ejecutar síntesis, implementación y generación del bitstream.
-7. Programar la FPGA y realizar las comprobaciones físicas del montaje.
+1. Crear un proyecto RTL en Vivado y seleccionar la FPGA correspondiente.
+2. Agregar los módulos Verilog como **Design Sources** y establecer el módulo principal como **Top**.
+3. Agregar únicamente el archivo `.xdc` de la tarjeta utilizada.
+4. Ejecutar **Synthesis**, **Implementation** y **Generate Bitstream**.
+5. Conectar la tarjeta y cargar el `.bit` mediante **Hardware Manager → Program Device**.
 
-La reproducción en hardware requiere las restricciones correspondientes a la FPGA utilizada y las conexiones del montaje. La configuración de pines depende de la tarjeta.
+La salida `Datos_LED` se conecta a **JA1** y la recepción UART utiliza el puente USB-UART de la tarjeta.
 
 El informe final describe el montaje, las decisiones de diseño y las pruebas físicas. Los archivos de simulación permiten reproducir el comportamiento lógico y temporal de las fuentes Verilog.
 
