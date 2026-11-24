@@ -1,0 +1,68 @@
+$date
+	Sun Nov 22 18:49:54 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_selector_color $end
+$scope module dut $end
+$var wire 1 ! CLK $end
+$var wire 1 " Estado $end
+$var wire 3 # Interruptores [2:0] $end
+$var wire 24 $ D_Color [23:0] $end
+$var wire 24 % Color_elegido [23:0] $end
+$var parameter 8 & Brillo $end
+$var reg 24 ' Color [23:0] $end
+$var reg 3 ( Interruptores_etapa1 [2:0] $end
+$var reg 3 ) Interruptores_etapa2 [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1000000 &
+$end
+#10000
+$dumpvars
+b0 )
+b0 (
+b10000000000000000000000 '
+b10000000000000000000000 %
+b10000000000000000000000 $
+b0 #
+0"
+0!
+$end
+#15000
+1!
+#20000
+0!
+b1 #
+#25000
+b1 (
+1!
+#30000
+0!
+#35000
+b100000000000000 $
+b100000000000000 %
+b1 )
+1!
+#40000
+0!
+#45000
+b100000000000000 '
+1!
+#50000
+0!
+#55000
+1!
+#60000
+0!
+#65000
+1!
+#70000
+0!

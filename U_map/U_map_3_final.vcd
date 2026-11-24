@@ -1,0 +1,89 @@
+$date
+	Sun Nov 22 15:57:09 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_mapeo_matriz $end
+$scope module dut $end
+$var wire 8 ! Indice_pixel [7:0] $end
+$var wire 3 " Fila_directa [2:0] $end
+$var wire 3 # Fila [2:0] $end
+$var wire 5 $ Columna [4:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11110 $
+b0 #
+b0 "
+b11110000 !
+$end
+#10000
+b1 #
+b1 "
+b11110001 !
+#20000
+b10 #
+b10 "
+b11110010 !
+#30000
+b11 #
+b11 "
+b11110011 !
+#40000
+b100 #
+b100 "
+b11110100 !
+#50000
+b101 #
+b101 "
+b11110101 !
+#60000
+b110 #
+b110 "
+b11110110 !
+#70000
+b111 #
+b111 "
+b11110111 !
+#80000
+b0 "
+b11111 $
+b11111000 !
+#90000
+b110 #
+b1 "
+b11111001 !
+#100000
+b101 #
+b10 "
+b11111010 !
+#110000
+b100 #
+b11 "
+b11111011 !
+#120000
+b11 #
+b100 "
+b11111100 !
+#130000
+b10 #
+b101 "
+b11111101 !
+#140000
+b1 #
+b110 "
+b11111110 !
+#150000
+b0 #
+b111 "
+b11111111 !
+#160000
