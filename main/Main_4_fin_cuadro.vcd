@@ -1,0 +1,376 @@
+$date
+	Mon Nov 23 19:37:35 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_main $end
+$scope module dut $end
+$var wire 1 ! CLK $end
+$var wire 1 " D_Estado $end
+$var wire 3 # Interruptores [2:0] $end
+$var wire 1 $ Pixel_encendido $end
+$var wire 1 % UART_RX $end
+$var wire 8 & Pixeles_fila [7:0] $end
+$var wire 8 ' Indice_pixel [7:0] $end
+$var wire 5 ( Indice_bit [4:0] $end
+$var wire 3 ) Fila [2:0] $end
+$var wire 192 * FRASE [191:0] $end
+$var wire 1 + En_Glifo $end
+$var wire 1 , D_Datos_LED $end
+$var wire 7 - Contador_tiempo_bit [6:0] $end
+$var wire 15 . Contador_reinicio [14:0] $end
+$var wire 5 / Columna [4:0] $end
+$var wire 24 0 Color_pixel [23:0] $end
+$var wire 24 1 Color_elegido [23:0] $end
+$var wire 6 2 Codigo_caracter [5:0] $end
+$var wire 3 3 Bit_glifo [2:0] $end
+$var wire 1 4 Bit_actual $end
+$var wire 1 5 Bandera_fin_reinicio $end
+$var wire 1 6 Bandera_fin_pixel $end
+$var wire 1 7 Bandera_fin_columna $end
+$var wire 1 8 Bandera_fin_bit $end
+$var wire 1 9 Bandera_fin_Cuadro $end
+$var parameter 1 : ENVIO $end
+$var parameter 192 ; FRASE_INICIAL $end
+$var parameter 32 < N_CHARS $end
+$var parameter 1 = REINICIO $end
+$var parameter 32 > Tiempo_alto_bit_0 $end
+$var parameter 32 ? Tiempo_alto_bit_1 $end
+$var reg 1 @ Datos_LED $end
+$var reg 1 A Estado $end
+$scope module u_color $end
+$var wire 1 ! CLK $end
+$var wire 1 A Estado $end
+$var wire 3 B Interruptores [2:0] $end
+$var wire 24 C D_Color [23:0] $end
+$var wire 24 D Color_elegido [23:0] $end
+$var parameter 8 E Brillo $end
+$var reg 24 F Color [23:0] $end
+$var reg 3 G Interruptores_etapa1 [2:0] $end
+$var reg 3 H Interruptores_etapa2 [2:0] $end
+$upscope $end
+$scope module u_cont $end
+$var wire 1 9 Bandera_fin_Cuadro $end
+$var wire 1 7 Bandera_fin_columna $end
+$var wire 1 6 Bandera_fin_pixel $end
+$var wire 1 ! CLK $end
+$var wire 1 A Estado $end
+$var wire 8 I D_Indice_pixel [7:0] $end
+$var wire 5 J D_Indice_bit [4:0] $end
+$var wire 7 K D_Contador_tiempo_bit [6:0] $end
+$var wire 15 L D_Contador_reinicio [14:0] $end
+$var wire 1 5 Bandera_fin_reinicio $end
+$var wire 1 8 Bandera_fin_bit $end
+$var parameter 32 M Periodo_bit $end
+$var parameter 32 N Tiempo_reinicio $end
+$var reg 15 O Contador_reinicio [14:0] $end
+$var reg 7 P Contador_tiempo_bit [6:0] $end
+$var reg 5 Q Indice_bit [4:0] $end
+$var reg 8 R Indice_pixel [7:0] $end
+$upscope $end
+$scope module u_frase $end
+$var wire 1 S Bandera_borrar $end
+$var wire 1 T Bandera_caracter $end
+$var wire 1 ! CLK $end
+$var wire 1 A Estado $end
+$var wire 1 % UART_RX $end
+$var wire 7 U Traduccion [6:0] $end
+$var wire 1 V Dato_valido $end
+$var wire 8 W Dato [7:0] $end
+$var wire 192 X D_Frase [191:0] $end
+$var parameter 6 Y Codigo_espacio $end
+$var parameter 192 Z FRASE_INICIAL $end
+$var parameter 32 [ N_CHARS $end
+$var reg 192 \ Frase [191:0] $end
+$scope function Traducir $end
+$var reg 8 ] Ascii [7:0] $end
+$var reg 8 ^ Resta [7:0] $end
+$upscope $end
+$scope module u_rx $end
+$var wire 1 ! CLK $end
+$var wire 1 % RX $end
+$var parameter 32 _ Clks_por_bit $end
+$var parameter 2 ` DATOS $end
+$var parameter 2 a INACTIVO $end
+$var parameter 2 b INICIO $end
+$var parameter 2 c PARADA $end
+$var reg 10 d Contador [9:0] $end
+$var reg 8 e Dato [7:0] $end
+$var reg 1 V Dato_valido $end
+$var reg 2 f Estado_rx [1:0] $end
+$var reg 3 g Indice [2:0] $end
+$var reg 1 h RX_etapa1 $end
+$var reg 1 i RX_etapa2 $end
+$upscope $end
+$upscope $end
+$scope module u_map $end
+$var wire 8 j Indice_pixel [7:0] $end
+$var wire 3 k Fila_directa [2:0] $end
+$var wire 3 l Fila [2:0] $end
+$var wire 5 m Columna [4:0] $end
+$upscope $end
+$scope module u_rom $end
+$var wire 3 n fila [2:0] $end
+$var wire 6 o caracter [5:0] $end
+$var reg 8 p pixeles [7:0] $end
+$upscope $end
+$scope module u_scroll $end
+$var wire 1 9 Bandera_fin_Cuadro $end
+$var wire 1 7 Bandera_fin_columna $end
+$var wire 1 q Bandera_fin_paso $end
+$var wire 1 r Bandera_fin_texto $end
+$var wire 3 s Bit_glifo [2:0] $end
+$var wire 1 ! CLK $end
+$var wire 1 + En_Glifo $end
+$var wire 1 A Estado $end
+$var wire 192 t FRASE [191:0] $end
+$var wire 216 u FRASE_PAD [215:0] $end
+$var wire 4 v D4 [3:0] $end
+$var wire 6 w D3 [5:0] $end
+$var wire 6 x D2 [5:0] $end
+$var wire 4 y D1 [3:0] $end
+$var wire 8 z D [7:0] $end
+$var wire 6 { Codigo_caracter [5:0] $end
+$var wire 1 | Bandera_inicio_en_espacio $end
+$var wire 1 } Bandera_actual_valido $end
+$var wire 1 ~ Bandera_actual_en_espacio $end
+$var wire 1 !" Bandera_Cuadros_completos $end
+$var parameter 32 "" Cuadros_por_paso $end
+$var parameter 32 #" NP $end
+$var parameter 32 $" N_CHARS $end
+$var parameter 32 %" N_PAD $end
+$var reg 6 &" Actual_indice [5:0] $end
+$var reg 4 '" Actual_subcol [3:0] $end
+$var reg 8 (" Contador_Cuadros [7:0] $end
+$var reg 6 )" Inicio_indice [5:0] $end
+$var reg 4 *" Inicio_subcol [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 %"
+b100000 $"
+b100100 #"
+b1 ""
+b11 c
+b1 b
+b0 a
+b10 `
+b1101100100 _
+b100000 [
+b111001110001011000000011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010 Z
+b11010 Y
+b110110101100000 N
+b1111101 M
+b1000000 E
+b1011000 ?
+b11001 >
+0=
+b100000 <
+b111001110001011000000011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010 ;
+1:
+$end
+#7959950000
+$dumpvars
+b0 *"
+b0 )"
+b0 ("
+b100 '"
+b11 &"
+1!"
+0~
+1}
+0|
+b11010 {
+b0 z
+b0 y
+b0 x
+b11 w
+b100 v
+b11010011010011010011010000111001110001011000000011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010 u
+b111001110001011000000011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010 t
+b11 s
+0r
+0q
+b0 p
+b11010 o
+b0 n
+b11111 m
+b0 l
+b111 k
+b11111111 j
+1i
+1h
+b0 g
+b0 f
+b0 e
+b0 d
+bx ^
+b0 ]
+b111001110001011000000011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010 \
+b111001110001011000000011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010 X
+b0 W
+0V
+b0 U
+0T
+0S
+b11111111 R
+b0 Q
+b1111000 P
+b0 O
+b0 L
+b1111001 K
+b0 J
+b11111111 I
+b0 H
+b0 G
+b10000000000000000000000 F
+b10000000000000000000000 D
+b10000000000000000000000 C
+b0 B
+1A
+0@
+09
+08
+07
+06
+05
+04
+b11 3
+b11010 2
+b10000000000000000000000 1
+b0 0
+b11111 /
+b0 .
+b1111000 -
+0,
+1+
+b111001110001011000000011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010011010 *
+b0 )
+b0 (
+b11111111 '
+b0 &
+1%
+0$
+b0 #
+1"
+0!
+$end
+#7959955000
+b1111010 K
+b1111001 -
+b1111001 P
+1!
+#7959960000
+0!
+#7959965000
+b1111011 K
+b1111010 -
+b1111010 P
+1!
+#7959970000
+0!
+#7959975000
+b1111100 K
+b1111011 -
+b1111011 P
+1!
+#7959980000
+0!
+#7959985000
+b0 I
+b1 y
+0"
+b101 v
+b10111 J
+1q
+19
+17
+16
+b0 K
+18
+b1111100 -
+b1111100 P
+1!
+#7959990000
+0!
+#7959995000
+b1 L
+b0 w
+b1 v
+b10 3
+b10 s
+b1 y
+0q
+07
+09
+b0 k
+b0 /
+b0 m
+06
+0A
+b101 '"
+b1 *"
+b0 '
+b0 R
+b0 j
+b10111 (
+b10111 Q
+08
+b0 -
+b0 P
+1!
+#7960000000
+0!
+#7960005000
+b110 3
+b110 s
+b10 L
+b1 .
+b1 O
+b1 '"
+b0 &"
+1!
+#7960010000
+0!
+#7960015000
+b11 L
+b10 .
+b10 O
+1!
+#7960020000
+0!
+#7960025000
+b100 L
+b11 .
+b11 O
+1!
+#7960030000
+0!
+#7960035000
+b101 L
+b100 .
+b100 O
+1!
+#7960040000
+0!
+#7960045000
+b110 L
+b101 .
+b101 O
+1!
+#7960050000
+0!
+#7960055000
+b111 L
+b110 .
+b110 O
+1!
+#7960060000
+0!
